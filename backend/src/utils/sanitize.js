@@ -1,0 +1,6 @@
+export const sanitizeInput = (input) => {
+    if (typeof input === "string") {
+        return input.replace(/[<>$]/g, "");
+    }
+    return input;
+};
