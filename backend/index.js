@@ -12,6 +12,7 @@ import authRouter from "./src/routers/authRoutes.js";
 import jobRouter from "./src/routers/jobRoutes.js";
 import applicationRouter from "./src/routers/applicationRoutes.js";
 import { initSocket } from "./src/services/websocket/websocket.js";
+import path from "path";
 
 
 dotenv.config();
@@ -34,7 +35,6 @@ app.use(express.json({ limit: "10kb" }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(helmet());
-
 const rateLimiter = rateLimit({
     windowMs: 15 * 60 * 1000,
     max: 100,
@@ -44,8 +44,7 @@ const rateLimiter = rateLimit({
 app.use("/api/auth", authRouter);
 app.use("/api/jobs", jobRouter);
 app.use("/api/applications", applicationRouter);
-app.use("/uploads", express.static("uploads"));
-
+app.use("/uploads", express.static(path.join(process.cwd(), "public/uploads")));
 const server = http.createServer(app);
 
 

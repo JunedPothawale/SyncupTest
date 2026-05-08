@@ -45,10 +45,7 @@ export default function NotificationDrawer({ open, onClose, notifications }: Not
                     )}
 
                     {notifications.map(
-                        (
-                            item,
-                            index
-                        ) => (
+                        (item, index) => (
 
                             <div
                                 key={index}
