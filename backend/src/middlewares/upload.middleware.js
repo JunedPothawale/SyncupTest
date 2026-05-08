@@ -5,7 +5,7 @@ import fs from "fs";
 import { s3 } from "../configs/s3.config.js";
 
 // 📂 local folder
-const appUrl = process.env.APP_URL
+
 const uploadDir = `public/uploads/resumes`;
 if (!fs.existsSync(uploadDir)) {
     fs.mkdirSync(uploadDir, { recursive: true });
