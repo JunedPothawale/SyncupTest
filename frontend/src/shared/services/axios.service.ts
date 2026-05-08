@@ -31,7 +31,6 @@ API.interceptors.response.use(
       !originalRequest.url.includes("/auth/refresh")
     ) {
       originalRequest._retry = true;
-
       if (isRefreshing) {
         return new Promise((resolve, reject) => {
           failedQueue.push({

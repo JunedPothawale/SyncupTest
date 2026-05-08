@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import axios from "axios";
+import API from "@/shared/services/axios.service";
 
 type Role = "recruiter" | "candidate";
 
@@ -46,7 +46,7 @@ export default function RegisterPage() {
         setError("");
 
         try {
-            await axios.post("http://localhost:4000/api/auth/register", {
+            await API.post("/auth/register", {
                 name: form.name,
                 email: form.email,
                 password: form.password,

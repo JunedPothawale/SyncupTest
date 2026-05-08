@@ -45,6 +45,9 @@ app.use("/api/auth", authRouter);
 app.use("/api/jobs", jobRouter);
 app.use("/api/applications", applicationRouter);
 app.use("/uploads", express.static(path.join(process.cwd(), "public/uploads")));
+app.get("/", (req, res) => {
+    return res.json({ "message": "Working" });
+})
 const server = http.createServer(app);
 
 
